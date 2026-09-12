@@ -1,0 +1,115 @@
+metadata:
+  name: "humbird_anabolism"
+  description: "Stoichiometric coefficients for Humbird anabolic reaction"
+  version: "1.0.0"
+  created: "2026-02-11"
+
+# Anabolic reaction stoichiometry
+# Negative values: consumed, Positive values: produced
+# Zero values omitted
+
+anabolic_reaction:
+  Glc:
+    name: "Glucose"
+    value: -0.0650921349829774
+    unit: "-"
+  Arg:
+    name: "Arginine"
+    value: -0.00668070698299715
+    unit: "-"
+  Cys:
+    name: "Cysteine"
+    value: -0.0039799956494451
+    unit: "-"
+  Gln:
+    name: "Glutamine"
+    value: -0.0197566453011176
+    unit: "-"
+  His:
+    name: "Histidine"
+    value: -0.00298499673708383
+    unit: "-"
+  Ile:
+    name: "Isoleucine"
+    value: -0.00653856428123125
+    unit: "-"
+  Lys:
+    name: "Lysine"
+    value: -0.00994998912366127
+    unit: "-"
+  Met:
+    name: "Methionine"
+    value: -0.00241642593002025
+    unit: "-"
+  Phe:
+    name: "Phenylalanine"
+    value: -0.00497499456180639
+    unit: "-"
+  Thr:
+    name: "Threonine"
+    value: -0.008528565105538
+    unit: "-"
+  Trp:
+    name: "Tryptophan"
+    value: -0.00156356971942486
+    unit: "-"
+  Tyr:
+    name: "Tyrosine"
+    value: -0.00497499456180639
+    unit: "-"
+  Val:
+    name: "Valine"
+    value: -0.00980784642184688
+    unit: "-"
+  Ala:
+    name: "Alanine"
+    value: -0.01279284315897
+    unit: "-"
+  Asn:
+    name: "Asparagine"
+    value: -0.0062542788776946
+    unit: "-"
+  Asp:
+    name: "Aspartate"
+    value: -0.00781784859712432
+    unit: "-"
+  Gly:
+    name: "Glycine"
+    value: -0.0106607026324423
+    unit: "-"
+  Leu:
+    name: "Leucine"
+    value: -0.0106607026324423
+    unit: "-"
+  Pro:
+    name: "Proline"
+    value: -0.00653856428123125
+    unit: "-"
+  Ser:
+    name: "Serine"
+    value: -0.0100921318253787
+    unit: "-"
+  DCM:
+    name: "Dry Cell Mass"
+    value: 1
+    unit: "-"
+  Glu:
+    name: "Glutamate"
+    value: 0.00540023242282207
+    unit: "-"
+  CO2:
+    name: "Carbon Dioxide"
+    value: 0.0761070605147842
+    unit: "-"
+  H2O:
+    name: "Water"
+    value: 0.24042211936531
+    unit: "-"
+  delta_Hf:
+    name: "Enthalpy of Formation"
+    value: -7.51219111983168
+    unit: "kJ/mol"
+  delta_Gf:
+    name: "Gibbs Free Energy of Formation"
+    value: -2.77147371364686
+    unit: "kJ/mol"

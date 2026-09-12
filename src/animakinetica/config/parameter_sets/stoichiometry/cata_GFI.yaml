@@ -1,0 +1,47 @@
+metadata:
+  name: "cata_GFI"
+  description: "Stoichiometric coefficients for the catabolic reaction of the GFI cell. Cell mass = 1000pg with 15% dry content"
+  version: "2.0.0"
+  created: "2026-06-08"
+
+# Catabolic reaction stoichiometry
+# Negative values: consumed, Positive values: produced
+# Zero values omitted
+
+catabolic_reaction:
+  Glc:
+    name: "Glucose"
+    value: -1
+    unit: "-"
+  Gln:
+    name: "Glutamine"
+    value: -0.137119499621595
+    unit: "-"
+  O2:
+    name: "Oxygen"
+    value: -4.1213676302092
+    unit: "-"
+  NH3:
+    name: "Ammonia"
+    value: 0.27423899924319
+    unit: "-"
+  Lac:
+    name: "Lactate"
+    value: 0.83189003936266
+    unit: "-"
+  CO2:
+    name: "Carbon Dioxide"
+    value: 4.18992738001999
+    unit: "-"
+  H2O:
+    name: "Water"
+    value: 3.77856888115521
+    unit: "-"
+  delta_Hf:
+    name: "Enthalpy of Formation"
+    value: -1986.25672056125
+    unit: "kJ/mol"
+  delta_Gf:
+    name: "Gibbs Free Energy of Formation"
+    value: -2029.87706862598
+    unit: "kJ/mol"

@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+git_history_log.txt
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Simulation exports / generated artifacts
+export/
+*.pkl
+*.xlsx
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

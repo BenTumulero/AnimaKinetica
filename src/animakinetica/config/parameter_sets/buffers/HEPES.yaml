@@ -1,0 +1,16 @@
+acid_base_properties:
+  buffers:
+    - name: "HEPES"
+      pKa:
+        name: "HEPES pKa"
+        value: 7.55
+        unit: "-"
+      C_init:
+        name: "HEPES Initial Concentration"
+        value: 25.0
+        unit: "mmol/L"
+      C_feed:
+        name: "HEPES Feed Concentration"
+        value: 25.0
+        unit: "mmol/L"
+      type: "monoprotic"

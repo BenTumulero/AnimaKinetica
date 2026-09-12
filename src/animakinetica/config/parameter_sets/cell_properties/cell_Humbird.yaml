@@ -1,0 +1,100 @@
+metadata:
+  name: "cell_properties_Humbird"
+  description: "Cell properties based on Humbird data"
+  version: "1.0.0"
+  created: "2026-02-11"
+
+# Cell-specific properties
+cell_properties:
+  td:
+    name: "Doubling Time"
+    value: 24 # Average. Frohlich, B., et al. (2025) report a range of 12-24 hours for animal cells under optimized culture
+    unit: "h"
+    # Used to calculate mu_max
+  # mu_max is calculated automatically: ln(2) / td [1/h] max specific growth rate
+  cell_diameter:
+    name: "Cell Diameter"
+    value: 20.0
+    unit: "µm"
+    # Average diameter of animal cells (Dirk Martens during AC CA 2024)
+  cell_density:
+    name: "Cell Density"
+    value: 1.090
+    unit: "g/cm³"
+    # Density of animal cells (approximate) Dannhauser, D., et al. (2025)
+  wet_cell_mass:
+    name: "Wet Cell Mass"
+    value: 3000.0e-12
+    unit: "g"
+    # Estimated wet mass of a single cell 1000 pg WCM per cell. Cell size is a poor proxy for cell mass.
+  dry_mass_fraction:
+    name: "Dry Mass Fraction"
+    value: 0.3
+    unit: "-"
+    # Fraction of wet cell mass that is dry mass (30%)
+  protein_fraction:
+    name: "Protein Fraction of Dry Mass"
+    value: 0.7
+    unit: "-"
+    # Fraction of dry mass that is protein
+  lipid_fraction:
+    name: "Lipid Fraction of Dry Mass"
+    value: 0.15
+    unit: "-"
+    # Fraction of dry mass that is lipid
+  carbohydrate_fraction:
+    name: "Carbohydrate Fraction of Dry Mass"
+    value: 0.10
+    unit: "-"
+    # Fraction of dry mass that is carbohydrate
+  nucleic_acid_fraction:
+    name: "Nucleic Acids Fraction of Dry Mass"
+    value: 0.05
+    unit: "-"
+    # Fraction of dry mass that is nucleic acids
+  M_biomass:
+    name: "Molecular Weight of Biomass"
+    value: 21.9419898228467
+    unit: "g/Cmol"
+    # Average molecular weight of biomass (Humbird-like approximation CH1.66O0.37N0.22). WT & GMO assumed same here, but can vary in sensitivity
+  M_protein:
+    name: "Molecular Weight of Protein"
+    value: 22.4043434376944
+    unit: "g/Cmol"
+    # Average molecular weight of protein in biomass
+  M_AAs_ex_glutamine:  
+    name: "Molecular Weight of Amino Acids excluding glutamine and glutamic acid"
+    value: 123.205098647133
+    unit: "g/mol"
+    # Average molecular weight of amino acids. Calculated as weighted average of the amino acid composition of the protein fraction of biomass, excluding glutamine (which is often a major component of the medium and is to be treated separately in the model) and glutamic acid, which is a net product.
+  biomass_C:
+    name: "Biomass Carbon Coefficient"
+    value: 1
+    unit: "mol/Cmol"
+    # Empirical biomass composition basis for stoichiometric CHON closure, aligned with the current anabolic reaction coefficients.
+  biomass_H:
+    name: "Biomass Hydrogen Coefficient"
+    value: 1.67691225742354
+    unit: "mol/Cmol"
+    # Empirical biomass composition basis for stoichiometric CHON closure, aligned with the current anabolic reaction coefficients.
+  biomass_O:
+    name: "Biomass Oxygen Coefficient"
+    value: 0.335506676441273
+    unit: "mol/Cmol"
+    # Empirical biomass composition basis for stoichiometric CHON closure, aligned with the current anabolic reaction coefficients.
+  biomass_N:
+    name: "Biomass Nitrogen Coefficient"
+    value: 0.205110728403907
+    unit: "mol/Cmol"
+    # Empirical biomass composition basis for stoichiometric CHON closure, aligned with the current anabolic reaction coefficients.
+  Xv_min:
+    name: "Minimum Viable Cell Concentration"
+    value: 0.5e+9
+    unit: "cells/L"
+    # Minimum viable cell concentration to prevent washout (0.5e9 cells/L). Below this, the cultivation strategy is considered too risky.  
+  X_viscosity_limit:
+    name: "Viscosity Limit"
+    value: 350.0e+9
+    unit: "cells/L"
+    # Maximum biomass concentration before viscosity becomes limiting.
+  # cells_per_mmol is calculated automatically: M_biomass / cell_mass [cells/mmol] conversion factor between cells and mmol biomass

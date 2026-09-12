@@ -1,0 +1,95 @@
+# EXCESS Kinetic Model Parameters for AnimaKinetica
+# Use this file with base_parameters.yaml for EXCESS kinetics simulations
+# Mainly based on data of Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995). Continuous mouse hybridoma culture.
+
+# Usage:
+#   params = SimulationParameters.load_parameters([
+#       "base_parameters",
+#       "kinetics_models/excess_kinetics_continuous"
+#   ])
+
+metadata:
+  name: "excess_kinetics_continuous"
+  description: "EXCESS kinetic model parameters for glucose and glutamine - Based on data of Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995). Continuous mouse hybridoma culture."
+  version: "1.1.0"
+  created: "2026-06-08"
+
+# Parameters specific to the EXCESS kinetic model
+excess_kinetics:
+  # Growth yields and maintenance
+  Y_Glc:
+    name: "Maximum Growth Yield on Glucose"
+    value: 0.5e+9 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "cell/mmol"
+    # Under dual-substrate limitation
+  Y_Gln:
+    name: "Maximum Growth Yield on Glutamine"
+    value: 0.6e+9 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "cell/mmol"
+    # Under dual-substrate limitation
+  m_Glc:
+    name: "Glucose Maintenance Requirement"
+    value: 0 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/cell/h"
+    # Under dual-substrate limitation. Note: can be neglected
+  m_Gln:
+    name: "Glutamine Maintenance Requirement"
+    value: 0 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/cell/h"
+    # Under dual-substrate limitation. Note: can be neglected
+  
+  # Limitation thresholds
+  C_Glc_limit:
+    name: "Glucose Limitation Threshold"
+    value: 0.29 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/L"
+    # Minimum concentration of glucose required to maintain a specific growth rate of mu under dual glucose and glutamine limitation
+  C_Gln_limit:
+    name: "Glutamine Limitation Threshold"
+    value: 0.04 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/L"
+    # Minimum concentration of glutamine required to maintain a specific growth rate of p under dual glucose and glutamine limitation
+  
+  # Glucose excess parameters
+  K_Glc_Glc:
+    name: "Glucose Excess Saturation Constant"
+    value: 0.95 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/L"
+    # Saturation constant for the increment of glucose consumption rate due to glucose excess
+  delta_q_Glc_Glc_max:
+    name: "Maximum Glucose Consumption Increment"
+    value: 0.17e-9 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/cell/h"
+    # Maximum increment of specific consumption rate of glucose due to glucose excess
+  K_Gln_Glc:
+    name: "Glutamine Effect on Glucose Saturation Constant"
+    value: 2.04 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/L"
+    # Saturation constant for the increment or decline of glucose consumption rate due to glutamine excess
+  delta_q_Gln_Glc_max:
+    name: "Maximum Glucose Consumption Change due to Glutamine"
+    value: 0.012e-9 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/cell/h"
+    # Maximum increment or decline of specific consumption rate of glucose due to glutamine excess. Note: can be negative if in Glc limiting conditions. Otherwise, positive
+  
+  # Glutamine excess parameters
+  K_Glc_Gln:
+    name: "Glucose Effect on Glutamine Saturation Constant"
+    value: 0 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/L"
+    # Saturation constant for the increment or decline of glutamine consumption rate due to glucose excess. Note: since delta_q_Glc_Gln_max is neglected, this parameter can be neglected as well
+  delta_q_Glc_Gln_max:
+    name: "Maximum Glutamine Consumption Change due to Glucose"
+    value: 0 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/cell/h"
+    # Maximum increment or decline of specific consumption rate of glutamine due to glucose excess. Note: can be neglected. Analysed cultures did not show an effect of the glucose excess on glutamine uptake rates
+  K_Gln_Gln:
+    name: "Glutamine Excess Saturation Constant"
+    value: 1.54 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/L"
+    # Saturation constant for the increment of glutamine consumption rate due to glutamine excess
+  delta_q_Gln_Gln_max:
+    name: "Maximum Glutamine Consumption Increment"
+    value: 0.081e-9 # Kurokawa, H.,et al. (1993), via Zeng, A. P. and W. D. Deckwer (1995)
+    unit: "mmol/cell/h"
+    # Maximum increment of specific consumption rate of glutamine due to glutamine excess

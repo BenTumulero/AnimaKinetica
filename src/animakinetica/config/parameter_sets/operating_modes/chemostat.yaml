@@ -1,0 +1,57 @@
+# Chemostat Operating Mode Parameters for AnimaKinetica
+# Use this file with base_parameters.yaml for chemostat simulations
+#
+# Usage:
+#   params = SimulationParameters.load_parameters([
+#       "base_parameters",
+#       "kinetics_models/simple_kinetics",  # or excess_kinetics
+#       "operating_modes/chemostat"
+#   ])
+
+metadata:
+  name: "chemostat"
+  description: "Chemostat operating mode parameters - continuous feed and harvest at constant volume"
+  version: "1.0.0"
+  created: "2026-01-21"
+
+# initial_conditions:
+#   C_Glc_init:
+#     name: "Initial Glucose Concentration"
+#     value: 1
+#     unit: "mmol/L"
+#   C_Gln_init:
+#     name: "Initial Glutamine Concentration"
+#     value: 1
+#     unit: "mmol/L"
+#   C_AA_init:
+#     name: "Initial Amino Acid Concentration"
+#     value: 1
+#     unit: "mmol/L"
+
+# Continuous culture parameters. Used in chemostat mode and perfusion mode
+chemostat:
+  D:
+    name: "Dilution Rate"
+    value: 0.02
+    unit: "1/h"
+    # Dilution rate for chemostat operation and as base for perfusion
+  C_Glc_feed:
+    name: "Chemostat Feed Glucose Concentration"
+    value: 20
+    unit: "mmol/L"
+  C_Gln_feed:
+    name: "Chemostat Feed Glutamine Concentration"
+    value: 5
+    unit: "mmol/L"
+  C_AA_feed:
+    name: "Chemostat Feed Amino Acids Concentration"
+    value: 10
+    unit: "mmol/L"
+  Xv_chemostat_trig:    # Cell concentration at which to transition from fed-batch to chemostat operation
+    name: "Chemostat Start Cell Concentration"
+    value: 1.2e+9
+    unit: "cells/L"
+  osm_bg_feed:
+    name: Chemostat Feed Baseline Osmolality
+    value: 250
+    unit: mOsm/kg

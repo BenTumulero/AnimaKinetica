@@ -1,0 +1,156 @@
+# Perfusion Operating Mode Parameters for AnimaKinetica
+# Use this file with base_parameters.yaml for perfusion simulations
+#
+# Usage:
+#   params = SimulationParameters.load_parameters([
+#       "base_parameters",
+#       "kinetics_models/simple_kinetics",  # or excess_kinetics
+#       "operating_modes/perfusion"
+#   ])
+#
+# For concentrated fed-batch, combine with fed_batch:
+#   params = SimulationParameters.load_parameters([
+#       "base_parameters",
+#       "kinetics_models/excess_kinetics",
+#       "operating_modes/fed_batch",
+#       "operating_modes/perfusion"
+#   ])
+
+metadata:
+  name: "perfusion"
+  description: "Perfusion operating mode parameters - cell retention with continuous medium exchange"
+  version: "1.1.0"
+  created: "2026-01-21"
+
+# # Initial conditions are the conditions in the reactor at the start of the simulation, so at the start of the fed-batch phase. Optimized fed-batch parameters are prefered here.
+# initial_conditions:
+#   C_Glc_init:
+#     name: "Initial Glucose Concentration"
+#     value: 1
+#     unit: "mmol/L"
+#   C_Gln_init:
+#     name: "Initial Glutamine Concentration"
+#     value: 1
+#     unit: "mmol/L"
+#   C_AA_init:
+#     name: "Initial Amino Acid Concentration"
+#     value: 1
+#     unit: "mmol/L"
+
+# Perfusion-specific parameters
+perfusion:
+  C_Glc_feed:
+    name: "Perfusion Feed Glucose Concentration"
+    value: 20
+    unit: "mmol/L"
+  C_Gln_feed:
+    name: "Perfusion Feed Glutamine Concentration"
+    value: 5
+    unit: "mmol/L"
+  C_AA_feed:
+    name: "Perfusion Feed Amino Acids Concentration"
+    value: 10
+    unit: "mmol/L"
+  eff_separator:
+    name: "Separator Efficiency"
+    value: 0.99
+    unit: "-"
+    # Fraction of cells retained by the cell retention device
+  # Required for continuous perfusion (bleed and harvest)
+  B:
+    name: "Bleed Rate"
+    value: 0.015
+    unit: "1/h"
+    # Fractional bleed rate to control cell density (1/h). Always set to 0 in case of concentrated fed-batch, while using the same ODE system.
+  # Additional for constant dilution rate strategy, and as base for other strategies except CSPR
+  D_baseline:
+    name: "Base Dilution Rate"
+    value: 0.06
+    unit: "1/h"
+    # Base dilution rate for perfusion (1/h)
+  D_1_multiplier:
+    name: "Dilution Rate 1 Multiplier"
+    value: 2
+    unit: "-"
+    # Multiplier for first dilution rate step, activated when only one of the two waste metabolites exceeds its threshold
+  D_2_multiplier:
+    name: "Dilution Rate 2 Multiplier"
+    value: 4
+    unit: "-"
+    # Multiplier for second dilution rate step, activated when both waste metabolites exceed their thresholds
+  # Additional for toxicity based proportional strategy
+  k_Lac:
+    name: "Lactate Proportionality Constant"
+    value: 0.1
+    unit: "1/h"
+    # Proportionality constant for lactate in toxicity based proportional strategy
+  k_Amm:
+    name: "Ammonia Proportionality Constant"
+    value: 0.1
+    unit: "1/h"
+    # Proportionality constant for ammonia in toxicity based proportional strategy 
+  # Cell density based rate specific perfusion rate (CSPR)
+  CSPR:
+    name: "Cell Specific Perfusion Rate"
+    value: 6e-12
+    unit: "L/cell/h" # Feed rate given per litre culture volume per cell concentration per hour
+    # Cell specific perfusion rate
+  # Glucose setpoint perfusion control parameters
+  C_Glc_setpoint:
+    name: "Perfusion Glucose Setpoint"
+    value: 13
+    unit: "mmol/L"
+  C_Glc_setpoint_Kp:
+    name: "Perfusion Glucose Setpoint Proportional Gain"
+    value: 0.5
+    unit: "1/h"
+    # Optional. Set >0 for faster convergence from setpoint offsets.
+  C_Glc_setpoint_deadband:
+    name: "Perfusion Glucose Setpoint Deadband"
+    value: 0.01
+    unit: "mmol/L"
+    # Optional. Errors inside deadband are treated as zero.
+  C_Glc_setpoint_slew_rate:
+    name: "Perfusion Glucose Setpoint Slew Limit"
+    value: 50
+    unit: "1/h²"
+    # Optional. Max absolute change in D per hour.
+  C_Glc_setpoint_den_epsilon:
+    name: "Perfusion Glucose Setpoint Denominator Epsilon"
+    value: 1e-9
+    unit: "mmol/L"
+    # Optional guard for near-zero denominator (C_Glc_feed - C_Glc_setpoint).
+
+# Additional perfusion stopping parameters for concentrated fed-batch strategy.
+  Xv_harvest_stop:
+    name: "Perfusion Harvest Stop Cell Density"
+    value: 50e+9
+    unit: "cells/L"
+    # Concentrated fed-batch only: end perfusion once target cell density is reached.
+  min_perfusion_runtime_h:
+    name: "Minimum Perfusion Runtime"
+    value: 24
+    unit: "h"
+  #   # Optional guard to prevent stopping immediately after the perfusion phase starts.
+
+# Optional parameters for perfusion trigger strategies (not used in current optimization, but can be added back if needed for more complex strategies)
+  # # Triggers for activating perfusion
+  # C_Lac_pf_trig:
+  #   name: "Lactate perfusion trigger Concentration"
+  #   value: 25
+  #   unit: "mmol/L"
+  #   # Lactate concentration threshold for toxicity-based perfusion
+  # C_Amm_pf_trig:
+  #   name: "Ammonia perfusion trigger Concentration"
+  #   value: 10
+  #   unit: "mmol/L"
+  # Xv_pf_trig:
+  #   name: "Cell Density perfusion trigger Concentration"
+  #   value: 2e+9
+  #   unit: "cells/L"
+  #   # Cell density threshold for cell density based perfusion
+  # Required perfusion parameters for all strategies
+  osm_bg_feed:
+    name: Perfusion Feed Baseline Osmolality
+    value: 250
+    unit: mOsm/kg

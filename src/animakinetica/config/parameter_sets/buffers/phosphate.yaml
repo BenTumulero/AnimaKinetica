@@ -1,0 +1,16 @@
+acid_base_properties:
+  buffers:
+    - name: "Phosphate"
+      pKa:
+        name: "Phosphate pKa2"
+        value: 7.20
+        unit: "-"
+      C_init:
+        name: "Phosphate Initial Concentration"
+        value: 30.0
+        unit: "mmol/L"
+      C_feed:
+        name: "Phosphate Feed Concentration"
+        value: 30.0
+        unit: "mmol/L"
+      type: "monoprotic"

@@ -1,0 +1,115 @@
+metadata:
+  name: "anab_GFI_cell"
+  description: "Stoichiometric coefficients for GFI cell anabolic reaction, according to Humbird method"
+  version: "1.0.0"
+  created: "2026-02-19"
+
+# Anabolic reaction stoichiometry
+# Negative values: consumed, Positive values: produced
+# Zero values omitted
+
+anabolic_reaction:
+  Glc:
+    name: "Glucose"
+    value: -0.0770498330238500
+    unit: "-"
+  Arg:
+    name: "Arginine"
+    value: -0.00590704959241799
+    unit: "-"
+  Cys:
+    name: "Cysteine"
+    value: -0.00353190933742064
+    unit: "-"
+  Gln:
+    name: "Glutamine"
+    value: -0.0507989686865230
+    unit: "-"
+  His:
+    name: "Histidine"
+    value: -0.00263932003065485
+    unit: "-"
+  Ile:
+    name: "Isoleucine"
+    value: -0.00578136768619633
+    unit: "-"
+  Lys:
+    name: "Lysine"
+    value: -0.00879773343515161
+    unit: "-"
+  Met:
+    name: "Methionine"
+    value: -0.00213659240576821
+    unit: "-"
+  Phe:
+    name: "Phenylalanine"
+    value: -0.00439886671775808
+    unit: "-"
+  Thr:
+    name: "Threonine"
+    value: -0.00754034437329957
+    unit: "-"
+  Trp:
+    name: "Tryptophan"
+    value: -0.00138250096843825
+    unit: "-"
+  Tyr:
+    name: "Tyrosine"
+    value: -0.00439886671775808
+    unit: "-"
+  Val:
+    name: "Valine"
+    value: -0.00867205152254500
+    unit: "-"
+  Ala:
+    name: "Alanine"
+    value: -0.0113113715599430
+    unit: "-"
+  Asn:
+    name: "Asparagine"
+    value: -0.00553000387375302
+    unit: "-"
+  Asp:
+    name: "Aspartate"
+    value: -0.00691250484219127
+    unit: "-"
+  Gly:
+    name: "Glycine"
+    value: -0.00942614290662445
+    unit: "-"
+  Leu:
+    name: "Leucine"
+    value: -0.00942614290662446
+    unit: "-"
+  Pro:
+    name: "Proline"
+    value: -0.00578136768619633
+    unit: "-"
+  Ser:
+    name: "Serine"
+    value: -0.00892341534137362
+    unit: "-"
+  DCM:
+    name: "Dry Cell Mass"
+    value: 1
+    unit: "-"
+  Glu:
+    name: "Glutamate"
+    value: 0.0381050961602470
+    unit: "-"
+  CO2:
+    name: "Carbon Dioxide"
+    value: 0.0684628318501929
+    unit: "-"
+  H2O:
+    name: "Water"
+    value: 0.267077803400579000
+    unit: "-"
+  delta_Hf:
+    name: "Enthalpy of Formation"
+    value: -8.90166143899400
+    unit: "kJ/mol"
+  delta_Gf:
+    name: "Gibbs Free Energy of Formation"
+    value: -4.48782227884762000
+    unit: "kJ/mol"

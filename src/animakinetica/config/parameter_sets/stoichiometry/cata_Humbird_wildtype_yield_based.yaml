@@ -1,0 +1,29 @@
+metadata:
+  name: "cata_yield_based"
+  description: >
+    Variable catabolic reaction defined by two apparent yield coefficients
+    (Y_Lac_Glc, Y_Gln_Glc).  Full stoichiometry (O2, NH3, CO2, H2O) is derived
+    via elemental atom balancing in StoichiometricModel._atom_balance_catabolic().
+    The reaction enthalpy (delta_Hf_catabolic) is computed from hardcoded standard
+    formation enthalpies rather than being read from this file.
+
+    Default values match the Humbird et al. (2020) Excel stoichiometry tool example.
+
+    To use at runtime:
+      sim.stoich_model.set_catabolic_yields(Y_Lac_Glc=0.50, Y_Gln_Glc=0.025)
+  version: "1.0.0"
+  created: "2026-03-03"
+
+# Catabolic reaction - yield-based mode
+# Only two degrees of freedom are required; all other coefficients are derived.
+# Negative coefficients (substrates) are computed automatically.
+
+catabolic_reaction:
+  Y_Lac_Glc:
+    name: "Lactate yield on glucose"
+    value: 1.77
+    unit: "mol/mol"
+  Y_Gln_Glc:
+    name: "Glutamine yield on glucose"
+    value: 0.13
+    unit: "mol/mol"

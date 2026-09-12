@@ -1,0 +1,47 @@
+metadata:
+  name: "humbird_catabolism"
+  description: "Stoichiometric coefficients for Humbird catabolic reaction"
+  version: "1.0.0"
+  created: "2026-02-11"
+
+# Catabolic reaction stoichiometry
+# Negative values: consumed, Positive values: produced
+# Zero values omitted
+
+catabolic_reaction:
+  Glc:
+    name: "Glucose"
+    value: -1
+    unit: "-"
+  Gln:
+    name: "Glutamine"
+    value: -0.13
+    unit: "-"
+  O2:
+    name: "Oxygen"
+    value: -1.275
+    unit: "-"
+  NH3:
+    name: "Ammonia"
+    value: 0.26
+    unit: "-"
+  Lac:
+    name: "Lactate"
+    value: 1.77
+    unit: "-"
+  CO2:
+    name: "Carbon Dioxide"
+    value: 1.34
+    unit: "-"
+  H2O:
+    name: "Water"
+    value: 0.95
+    unit: "-"
+  delta_Hf:
+    name: "Enthalpy of Formation"
+    value: -680.5012
+    unit: "kJ/mol"
+  delta_Gf:
+    name: "Gibbs Free Energy of Formation"
+    value: -700.3955
+    unit: "kJ/mol"

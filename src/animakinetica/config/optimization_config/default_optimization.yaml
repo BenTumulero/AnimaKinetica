@@ -1,0 +1,26 @@
+metadata:
+  name: "default_optimization"
+  description: "Default optimization configuration for cell culture simulations. Generally used for simple optimization testing and debugging."
+  created: "2025-10-29"
+  version: "2.0.0"
+
+initial_conditions:
+  C_Glc_init:
+    bounds: [0.01, 50]
+  C_Gln_init:
+    bounds: [0.01, 50]
+
+# fed_batch:
+#   C_Glc_feed:
+#     bounds: [10, 100]
+#   C_Gln_feed:
+#     bounds: [5, 50]
+
+#   F_L0_specific:
+#     bounds: [0.001, 0.02]
+#     In case of exponential feeding strategy
+#   r:
+#     bounds: [0.005, 0.03]
+#   # In case of adaptive feeding strategy
+#   C_Glc_target:
+#     bounds: [0.5, 5.0]

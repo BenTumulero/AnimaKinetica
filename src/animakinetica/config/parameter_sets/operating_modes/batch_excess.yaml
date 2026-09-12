@@ -1,0 +1,30 @@
+# Fed-Batch Operating Mode Parameters for AnimaKinetica
+# Use this file with base_parameters.yaml for fed-batch simulations
+#
+# Usage:
+#   params = SimulationParameters.load_parameters([
+#       "base_parameters",
+#       "kinetics_models/simple_kinetics",  # or excess_kinetics
+#       "operating_modes/fed_batch"
+#   ])
+
+metadata:
+  name: "batch_excess"
+  description: "Batch operating mode parameters for excess kinetics. Starting at lower substrate concentrations"
+  version: "1.0.0"
+  created: "2026-01-21"
+
+# Initial conditions for simulation
+initial_conditions:
+  C_Glc_init:
+    name: "Initial Glucose Concentration"
+    value: 5
+    unit: "mmol/L"
+  C_Gln_init:
+    name: "Initial Glutamine Concentration"
+    value: 3
+    unit: "mmol/L"
+  C_AA_init:
+    name: "Initial Amino Acid Concentration"
+    value: 10
+    unit: "mmol/L"

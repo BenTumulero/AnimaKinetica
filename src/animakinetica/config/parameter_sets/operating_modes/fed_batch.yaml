@@ -1,0 +1,100 @@
+# Fed-Batch Operating Mode Parameters for AnimaKinetica
+# Use this file with base_parameters.yaml for fed-batch simulations
+#
+# Usage:
+#   params = SimulationParameters.load_parameters([
+#       "base_parameters",
+#       "kinetics_models/simple_kinetics",  # or excess_kinetics
+#       "operating_modes/fed_batch"
+#   ])
+
+metadata:
+  name: "fed_batch"
+  description: "Fed-batch operating mode parameters - continuous feeding without harvest"
+  version: "1.0.0"
+  created: "2026-01-21"
+
+# # Set initial conditions of medium in the reactor for fed-batch mode. The feed will add to this initial medium over time. Concentrations will be optimized.
+# initial_conditions:
+#   C_Glc_init:
+#     name: "Initial Glucose Concentration"
+#     value: 10
+#     unit: "mmol/L"
+#   C_Gln_init:
+#     name: "Initial Glutamine Concentration"
+#     value: 10
+#     unit: "mmol/L"
+#   C_AA_init:
+#     name: "Initial Amino Acid Concentration"
+#     value: 10
+#     unit: "mmol/L"
+
+# Feed parameters. Used in fed-batch, chemostat, and perfusion modes
+fed_batch:
+  C_Glc_feed:
+    name: "FB Feed Glucose Concentration"
+    value: 20
+    unit: "mmol/L"
+  C_Gln_feed:
+    name: "FB Feed Glutamine Concentration"
+    value: 10
+    unit: "mmol/L"
+  C_AA_feed:
+    name: "FB Feed Amino Acids Concentration"
+    value: 10
+    unit: "mmol/L"
+  # General feed parameters
+  F_L0_specific:
+    name: "FB Base Specific Feed Flow Rate"
+    value: 0.03
+    unit: "L/h/L"
+    # Base specific feed flow rate per litre of initial batch volume
+  # Exponential feed parameters
+  r:
+    name: "Rate of Increase for Exponential Feed"
+    value: 0.02
+    unit: "1/h"
+  # Linear feed parameters
+  feed_slope:
+    name: "FB Feed Rate Slope"
+    value: 0.1
+    unit: "L/h²"
+  # Cell-specific feed rate parameters
+  CSFR:
+    name: "Cell Specific Feed Rate"
+    value: 3e-12
+    unit: "L/cell/h"
+  # Glucose setpoint feed control parameters
+  C_Glc_setpoint:
+    name: "FB Glucose Setpoint"
+    value: 5
+    unit: "mmol/L"
+  C_Glc_setpoint_Kp:
+    name: "FB Glucose Setpoint Proportional Gain"
+    value: 0.2
+    unit: "1/h"
+  C_Glc_setpoint_deadband:
+    name: "FB Glucose Setpoint Deadband"
+    value: 0.01
+    unit: "mmol/L"
+  C_Glc_setpoint_slew_rate:
+    name: "FB Glucose Setpoint Feed Slew Limit"
+    value: 50
+    unit: "L/h²"
+  C_Glc_setpoint_den_epsilon:
+    name: "FB Glucose Setpoint Denominator Epsilon"
+    value: 1.0e-9
+    unit: "mmol/L"
+  # Batch-phase trigger: when set, a closed batch phase is prepended to the
+  # fed-batch phase.  The batch phase ends when glucose drops to this
+  # concentration, at which point feeding begins.  Must be > 0.001 mmol/L
+  # (the base glucose-depletion event threshold) and < C_Glc_init.
+  # Recommended: ~1 mmol/L for CHO cells (near the glucose Monod constant K_Glc).
+  C_Glc_batch_trigger:
+    name: "Batch-to-FedBatch Glucose Trigger"
+    value: 5 # 5x glucose Monod  to avoid starvation, but 
+    unit: "mmol/L"
+  osm_bg_feed:
+    name: FB Feed Baseline Osmolality
+    value: 250
+    unit: mOsm/kg
