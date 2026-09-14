@@ -1,0 +1,21 @@
+# Core simulation & data dependencies
+matplotlib
+numpy
+pandas
+scipy
+pyyaml
+plotly
+
+# Export & notebook execution
+python-kaleido
+jupyter
+xlsxwriter
+openpyxl
+
+# Optional/Testing dependencies
+pytest
+pytest-timeout
+func-timeout
+
+# Editable install of local repo
+-e .

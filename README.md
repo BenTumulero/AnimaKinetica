@@ -25,23 +25,72 @@ The package is intended for bioprocess engineers and researchers who need reprod
 
 ## Installation
 
-AnimaKinetica requires Python 3.10 or later (supported up to Python 3.13). The package core dependencies are NumPy, pandas, SciPy, PyYAML, Plotly, xlsxwriter, and ipykernel.
+AnimaKinetica requires Python 3.13 or later (supported up to Python 3.14.7).
 
-### Standard / Editable Installation
+The setup consists of two steps:
+1. **Setting up an environment** (using Conda or Python `venv`)
+2. **Installing the `animakinetica` package** (in standard or editable mode)
+
+---
+
+### Step 1: Create & Activate an Environment
+
+Choose one of the two options below:
+
+#### Option A: Conda Environment (Recommended)
+
+Create an isolated environment with all third-party dependencies using the provided `environment.yml`:
 
 ```bash
+# Clone the repository
 git clone <repository-url>
 cd animakinetica
-python -m pip install -e .
+
+# Create the conda environment
+conda env create -f environment.yml
+
+# Activate the environment
+conda activate animakinetica_env
 ```
 
-The editable installation (`-e .`) makes `animakinetica` importable while retaining local source changes. Standard builds (`pip install .`) and wheel distributions are also fully supported with bundled default configuration and parameter sets.
+> **Note on automatic package installation in Conda**:
+> By default, `environment.yml` includes `-e .` under the `pip:` section to install `animakinetica` automatically in editable mode upon creation. If you prefer a standard (non-editable) install or want to install the package manually, you can edit or remove that line in `environment.yml` before running `conda env create`.
 
-To install dependencies using `requirements.txt`:
+#### Option B: Python Virtual Environment (`venv`)
+
+Alternatively, create a standard Python virtual environment and install dependencies:
 
 ```bash
-python -m pip install -r requirements.txt
+# Clone the repository
+git clone <repository-url>
+cd animakinetica
+
+# Create and activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate      # On Linux/macOS
+# .venv\\Scripts\\Activate.ps1   # On Windows (PowerShell)
+
+# Install third-party dependencies
+pip install -r requirements.txt
 ```
+
+---
+
+### Step 2: Install `animakinetica`
+
+If you did not have `environment.yml` install the package automatically (or if you are using `venv`), install `animakinetica` into your active environment in your preferred mode:
+
+- **Standard Installation (Recommended for users):**
+  Installs the package as a regular library.
+  ```bash
+  pip install .
+  ```
+
+- **Editable Installation (Recommended for developers/contributors):**
+  Links directly to the local source code, allowing changes in `src/animakinetica/` to take effect immediately without reinstalling.
+  ```bash
+  pip install -e .
+  ```
 
 ## Quick start
 
