@@ -11,7 +11,7 @@ import pickle
 from typing import Any, Optional, Type, TypeVar, Union
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "normalize_pickle_filename",
     "resolve_pickle_save_path",

@@ -49,7 +49,7 @@ if TYPE_CHECKING:
 
 # Module metadata
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "plot_simulation_cumulative_harvest",
     "plot_simulation_cumulative_medium_use",

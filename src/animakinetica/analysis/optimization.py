@@ -30,7 +30,7 @@ import pandas as pd
 import numpy as np
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "OptimizationManager",
     "ObjectiveFunction",

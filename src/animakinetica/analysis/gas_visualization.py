@@ -29,7 +29,7 @@ else:
 
 # Module metadata
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "plot_batch_gas_transfer",
     "plot_simulation_cumulative_gas_use",

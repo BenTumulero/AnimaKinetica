@@ -21,7 +21,7 @@ from enum import Enum
 from animakinetica.core.parameters import SimulationParameters
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "GasController",
     "GasControllerModel",

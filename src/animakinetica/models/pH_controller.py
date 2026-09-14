@@ -14,7 +14,7 @@ from animakinetica.models.gas_controllers import GasControllerModel
 from animakinetica.core.parameters import BufferDefinition
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = ["pHControllerModel"]
 
 

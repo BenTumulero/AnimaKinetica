@@ -30,7 +30,7 @@ else:
 
 # Module metadata
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "plot_batch_biomass_metabolites",
     "plot_batch_volume_feed",

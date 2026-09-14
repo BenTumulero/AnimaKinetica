@@ -39,7 +39,7 @@ from animakinetica.core.parameters import SimulationParameters
 import numpy as np
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 
 __all__ = [
     "glucose_depletion_event",

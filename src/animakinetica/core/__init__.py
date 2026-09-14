@@ -8,7 +8,7 @@ their exports next to the calling script.
 """
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 
 from animakinetica.core.simulation import CellCultureSimulation
 from animakinetica.core.parameters import (

@@ -19,7 +19,7 @@ import numpy as np
 from ..core.parameters import  SimulationParameters
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = ["StoichiometricModel", "StoichiometryMode"]
 
 

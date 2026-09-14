@@ -23,7 +23,7 @@ import yaml
 import copy
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "Parameter",
     "ParameterValidationError",

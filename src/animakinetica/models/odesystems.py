@@ -30,7 +30,7 @@ from animakinetica.models.gas_controllers import GasControllerModel
 from animakinetica.models.pH_controller import pHControllerModel
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "OperatingMode",
     "ODESystem",

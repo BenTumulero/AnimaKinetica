@@ -7,7 +7,7 @@ customisation beyond these public selection APIs is required.
 """
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 
 from animakinetica.models.kinetics import Kinetics, create_kinetic_model
 from animakinetica.models.odesystems import OperatingMode, create_ode_systems

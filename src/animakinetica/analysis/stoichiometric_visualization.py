@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     from animakinetica.core.simulation_data import SimulationData, BatchData
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = [
     "plot_stoichiometric_yields",
 ]

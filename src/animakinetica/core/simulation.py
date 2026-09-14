@@ -45,7 +45,7 @@ from animakinetica.models.perfusion_strategies import PerfusionStrategy, create_
 from animakinetica.models.stoichiometry import StoichiometricModel, StoichiometryMode
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = ["CellCultureSimulation", "timing_decorator"]
 
 # Operating modes that should restart from a fresh inoculum after each repeated run.

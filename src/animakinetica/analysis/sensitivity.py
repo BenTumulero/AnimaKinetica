@@ -32,7 +32,7 @@ from animakinetica.core.simulation import CellCultureSimulation
 from animakinetica.core.simulation_data import SUMMARY_METRIC_DIRECTIONS
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = ["SensitivityAnalyzer"]
 
 # Export directory for sensitivity analysis pickle files

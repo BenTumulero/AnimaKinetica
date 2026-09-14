@@ -1,12 +1,11 @@
 # Base Parameter Set for AnimaKinetica
 # This file contains MANDATORY parameters required for all simulations.
-# 
-# For complete simulations, combine with kinetics model and operating mode files
+# Combine with other parameter sets (e.g., cell line, feed strategy, etc.) to create a full simulation configuration.
 
 metadata:
   name: "base_parameters"
   description: "Base parameter set for Cell culture simulation using the animakinetica package for a STR of 2000L working volume"
-  version: "5.0.0"
+  version: "1.0.0"
   created: "2026-06-08"
 
 shared_medium_properties:

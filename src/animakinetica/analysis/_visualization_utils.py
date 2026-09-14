@@ -14,7 +14,7 @@ These are internal helpers and are not a stable public API.
 from typing import TYPE_CHECKING, Union, Optional
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 __all__ = ["get_batch_data", "get_simulation_data"]
 
 if TYPE_CHECKING:

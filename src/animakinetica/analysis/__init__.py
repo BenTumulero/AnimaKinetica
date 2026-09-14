@@ -10,7 +10,7 @@ call ``fig.show()`` or ``fig.write_html(...)`` in the calling application.
 """
 
 __version__ = "1.0.0"
-__author__ = "Ben Tumulero"
+
 
 from animakinetica.analysis.optimization import OptimizationManager
 from animakinetica.analysis.sensitivity import SensitivityAnalyzer

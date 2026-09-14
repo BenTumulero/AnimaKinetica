@@ -540,16 +540,6 @@ self.ode_systems = create_ode_systems(params, operating_mode, self.stoichiometri
 
 **Compatibility**: Loaded `SimulationData` objects have full functionality - all methods (plotting, export, analysis) work identically to freshly run simulations
 
-## Testing & Validation
-- **Validation notebooks** in `validation/`:
-  - `Ljunggren_Haggstrom_1992_fedbatch_excess.ipynb`: Fed-batch validation against literature
-  - `Zhou_Hu_1994 - Batch excess.ipynb`: Batch mode validation
-  - `GDP.ipynb`: General Data Protection validation (?)
-- **Test notebooks** in `test/`: 
-  - Visualization testing: batch, kinetic, gas, process modules
-  - `pickle_serialization_test.ipynb`: Test save/load functionality with SimulationData
-- **No automated unit tests** - validation is manual comparison to literature data
-
 ## Common Pitfalls & Debugging Tips
 
 ### Parameter-Related Issues
@@ -622,28 +612,10 @@ animakinetica/
 ├── export/simulations/                # Exported simulation results (Excel/CSV)
 ├── src/animakinetica/                 # Main package (see structure above)
 │   └── config/                        # Bundled parameter & optimization YAML files
-├── test/                              # Visualization test notebooks
-├── validation/                        # Literature validation notebooks
+├── test/                              # Manual test notebooks
 ├── README.md                          # User documentation
-├── TODO                               # Development roadmap
-└── setup.py                           # Package installation script
 
-# Workspace root also contains:
-scripts/                               # Simulation outputs organized by mode
-CIP_SIP/                              # Clean-in-place/Sterilize-in-place analysis
-SuperPro/                             # Commercial bioprocess software files
 ```
-
-## TODO & Future Development
-**From TODO file**:
-- Research avian cell asparagine use (alternative to glutamine)
-- Add cell death model with substrate starvation
-- High waste concentration effects (death, not just inhibition)
-- Clarify cells-to-gram dry/wet weight conversions
-- Extend visualization to plot all data handles
-
-**Not Implemented** (data limitations):
-- Temperature effects on growth rate (no reliable correlations available)
 
 ## Quick Reference: Common Use Cases
 
