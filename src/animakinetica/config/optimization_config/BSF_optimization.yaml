@@ -1,0 +1,10 @@
+# What is the optimal batch medium composition to start with?
+initial_conditions:
+  C_Glc_init:
+    bounds: [1, 100]
+  C_Gln_init:
+    bounds: [1, 100]
+  # C_AA_init:
+  #   bounds: [1, 100]
+  # osm_bg_init:
+  #   bounds: [100, 300]
