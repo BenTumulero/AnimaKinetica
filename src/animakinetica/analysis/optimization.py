@@ -135,6 +135,7 @@ class OptimizationManager:
         self.optimized_simulation = None
         self.objectives = None
         self.optimization_scoring = None
+        self.optimization_metadata = None  # Populated by optimize_parameters()
 
         # Ensure simulation has parameters
         if not self.baseline_simulation.parameters:
@@ -594,6 +595,27 @@ class OptimizationManager:
             popsize = np.minimum(5 * len(self.opt_config), 50)  # Larger population for non-performance mode
             atol = 0
             tol = 0.01
+
+        # Persist run provenance for downstream consumers (e.g. the dashboard).
+        # The scipy result object itself carries no timestamps or settings.
+        from datetime import datetime
+        self.optimization_metadata = {
+            'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            'opt_config_file': str(self.opt_config_file),
+            'n_parameters': len(self.opt_config),
+            'workers': effective_workers,
+            'seed': seed,
+            'timeout_s': timeout,
+            'maxiter': int(maxiter),
+            'popsize': int(popsize),
+            'tol': tol,
+            'mutation': [0.5, 1.5],
+            'polish': True,
+            'evaluate_baseline': evaluate_baseline,
+            'seed_baseline': seed_baseline,
+            'baseline_objective_value': self.baseline_objective_value,
+            'baseline_is_feasible': self.baseline_is_feasible,
+        }
 
         result = differential_evolution(
             fun_objective,

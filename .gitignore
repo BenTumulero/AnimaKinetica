@@ -6,6 +6,7 @@ __pycache__/
 .venv/
 venv/
 git_history_log.txt
+build/
 
 # Jupyter Notebooks
 .ipynb_checkpoints
