@@ -625,6 +625,10 @@ The notebooks in `test/` exercise stoichiometry, buffer behavior, each operating
 **Ben Tumulero**  
 Delft University of Technology, Bioprocess Engineering Section
 
+## Zenodo Snapshots
+1. **v1.1.1** -[![DOI](https://zenodo.org/badge/1363731709.svg)](https://doi.org/10.5281/zenodo.23339283)
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
