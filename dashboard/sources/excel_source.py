@@ -74,11 +74,11 @@ class ExcelSource:
     source_kind = "excel"
 
     def discover(self, search_dir: Path) -> List[Path]:
-        """Find `*.xlsx` files under `search_dir` (recursive), newest first."""
+        """Find `*.xlsx` files under `search_dir` (recursive), alphabetical."""
         if not search_dir.exists():
             return []
         files = [p for p in search_dir.rglob("*.xlsx") if p.is_file()]
-        return sorted(files, key=lambda p: p.stat().st_mtime, reverse=True)
+        return sorted(files, key=lambda p: str(p).lower())
 
     def inspect_sheets(self, path: Path) -> List[str]:
         """Return the sheet names of a workbook (helper/debugging)."""

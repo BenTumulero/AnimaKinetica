@@ -17,13 +17,44 @@ from pathlib import Path
 import streamlit as st
 
 # Make `sources` / `views` importable when launched as `streamlit run dashboard/app.py`.
-sys.path.insert(0, str(Path(__file__).parent))
+DASHBOARD_DIR = Path(__file__).resolve().parent
+REPO_ROOT = DASHBOARD_DIR.parent
+sys.path.insert(0, str(DASHBOARD_DIR))
 
 from sources import DashboardModel, ExcelSource, PickleSource  # noqa: E402
 
 st.set_page_config(page_title="AnimaKinetica Dashboard", layout="wide")
 
-DEFAULT_SEARCH_DIR_HINT = "export/simulations"
+DEFAULT_SEARCH_DIR = REPO_ROOT
+
+
+def browse_directory() -> str | None:
+    """Open the OS folder-explorer dialog and return the chosen directory.
+
+    Returns None if the dialog cannot be shown (e.g. no display available
+    when running on a remote server) or the user cancels.
+    """
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+    except ImportError:
+        st.warning("Folder picker unavailable: tkinter is not installed.")
+        return None
+
+    try:
+        root = tk.Tk()
+        root.withdraw()
+        root.attributes("-topmost", True)
+        root.update_idletasks()
+        folder = filedialog.askdirectory(
+            initialdir=st.session_state.get("search_dir", str(DEFAULT_SEARCH_DIR)),
+            title="Select search directory",
+        )
+        root.destroy()
+        return folder or None
+    except tk.TclError as exc:
+        st.warning(f"Folder picker unavailable: {exc}")
+        return None
 
 
 @st.cache_resource(show_spinner=False)
@@ -45,10 +76,29 @@ def main() -> None:
         source_kind = st.radio("Backend", ["pickle", "excel"],
                                format_func=lambda s: {"pickle": "Pickle (full)",
                                                       "excel": "Excel (reduced)"}[s])
-        search_dir_input = st.text_input(
-            "Search directory", value=str((Path.cwd() / DEFAULT_SEARCH_DIR_HINT))
-        )
-        search_dir = Path(search_dir_input).expanduser()
+        # Directory selection: clickable "Browse…" button opens the OS
+        # folder explorer; the chosen path is stored in session state and
+        # displayed next to the button.
+        if "search_dir" not in st.session_state:
+            st.session_state.search_dir = str(DEFAULT_SEARCH_DIR)
+
+        browse_col, dir_col = st.columns([1, 2])
+        with browse_col:
+            if st.button("📁 Browse…", help="Open the folder explorer to "
+                         "choose the search directory"):
+                chosen = browse_directory()
+                if chosen:
+                    st.session_state.search_dir = chosen
+                    st.rerun()
+        with dir_col:
+            st.markdown(
+                f"<div style='padding-top: 0.4rem; "
+                "word-break: break-all; opacity: 0.8; font-size: 0.85em;'>"
+                f"📂 {st.session_state.search_dir}</div>",
+                unsafe_allow_html=True,
+            )
+
+        search_dir = Path(st.session_state.search_dir).expanduser()
         if not search_dir.exists():
             st.warning(f"Directory not found: {search_dir}")
             files: list[Path] = []

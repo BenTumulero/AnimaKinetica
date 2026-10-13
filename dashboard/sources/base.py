@@ -112,7 +112,7 @@ class DataSource(Protocol):
     source_kind: str
 
     def discover(self, search_dir: Path) -> List[Path]:
-        """Return candidate result files in `search_dir`, newest first."""
+        """Return candidate result files in `search_dir`, alphabetical."""
         ...
 
     def load(self, path: Path) -> DashboardModel:

@@ -29,11 +29,11 @@ class PickleSource:
     source_kind = "pickle"
 
     def discover(self, search_dir: Path) -> List[Path]:
-        """Find `*.pkl` files under `search_dir` (recursive), newest first."""
+        """Find `*.pkl` files under `search_dir` (recursive), alphabetical."""
         if not search_dir.exists():
             return []
         files = [p for p in search_dir.rglob("*.pkl") if p.is_file()]
-        return sorted(files, key=lambda p: p.stat().st_mtime, reverse=True)
+        return sorted(files, key=lambda p: str(p).lower())
 
     def load(self, path: Path) -> DashboardModel:
         obj = load_pickle_object(str(path))

@@ -45,11 +45,12 @@ The app is organized into three top-level tabs that separate single-batch
 ## Setup
 
 ```bash
-# 1. Install the package (editable, from the repository root)
-pip install -e .
+# 1. Using conda 
+conda install streamlit
 
-# 2. Install dashboard dependencies
-pip install -r dashboard/requirements.txt
+# 2. Using pip
+pip install streamlit
+
 ```
 
 ## Usage

@@ -12,6 +12,8 @@ from sources.base import DashboardModel
 def max_batches_selector(model: DashboardModel, key: str = "max_batches") -> int:
     """Slider capped at the number of available batches (min. 1)."""
     n = max(model.n_batches, 1)
+    if n <= 1:
+        return n
     return st.slider(
         "Max batches",
         min_value=1,
